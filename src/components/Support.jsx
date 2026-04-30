@@ -33,7 +33,8 @@ export default function SupportPage() {
   const lumi = new Lumi();
 
   const handlePayment = async (packageId) => {
-    // 1. Trigger the UI flow
+    try {
+        // 1. Trigger the UI flow
     const result = await lumi.pay({ packageId });
 
     if (result.status === "success") {
@@ -53,6 +54,9 @@ export default function SupportPage() {
         // 3. Grant access to your app features
             alert("thank you payment recieved");
         }
+    }
+    } catch (error) {
+        console.log(error);
     }
   }
 
