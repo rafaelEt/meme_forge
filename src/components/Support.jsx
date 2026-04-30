@@ -36,7 +36,7 @@ export default function SupportPage() {
     // 1. Trigger the UI flow
     const result = await lumi.pay({ packageId });
 
-    if (result.success) {
+    if (result.status === "success") {
         // 2. Verify payment status with Lumi using the tx_ref
         const response = await fetch(`https://api.lumi.et/api/v1/payment/verify/${result.tx_ref}`, {
         method: "POST",
