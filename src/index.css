@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overscroll-behavior-y: none;
+  }
+
+  body {
+    @apply bg-stone-100 text-stone-900 font-sans antialiased;
+    background-image:
+      radial-gradient(circle at 20% 20%, #e85d260a 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(232, 93, 38, 0.03) 0%, transparent 50%);
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-stone-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-stone-300 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-stone-400;
+  }
+
+  input[type="range"] {
+    @apply appearance-none bg-transparent cursor-pointer w-full;
+  }
+
+  input[type="range"]::-webkit-slider-track {
+    @apply bg-stone-200 rounded-full;
+    height: 4px;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    @apply appearance-none bg-stone-900 rounded-full cursor-pointer;
+    width: 16px;
+    height: 16px;
+    margin-top: -6px;
+    transition: transform 0.1s ease, background 0.1s ease;
+  }
+
+  input[type="range"]::-webkit-slider-thumb:hover {
+    @apply bg-brand;
+    transform: scale(1.15);
+  }
+
+  input[type="range"]::-moz-range-track {
+    @apply bg-stone-200 rounded-full;
+    height: 4px;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    @apply bg-stone-900 rounded-full border-none cursor-pointer;
+    width: 16px;
+    height: 16px;
+  }
+
+  input[type="color"] {
+    @apply appearance-none border-none cursor-pointer rounded-lg;
+    width: 32px;
+    height: 32px;
+    padding: 2px;
+    background: none;
+  }
+
+  input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+    border-radius: 6px;
+  }
+
+  input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply bg-white border border-stone-200 rounded-2xl shadow-panel overflow-hidden;
+  }
+
+  .panel-header {
+    @apply px-5 py-3.5 border-b border-stone-100 flex items-center justify-between;
+  }
+
+  .panel-title {
+    @apply text-xs font-semibold uppercase tracking-widest text-stone-400;
+  }
+
+  .input-field {
+    @apply w-full px-3.5 py-2.5 bg-stone-50 border border-stone-200 rounded-xl
+           text-sm text-stone-900 font-sans placeholder-stone-400
+           focus:outline-none focus:border-brand focus:bg-white focus:ring-2 focus:ring-brand/10
+           transition-all duration-150;
+  }
+
+  .select-field {
+    @apply w-full px-3.5 py-2.5 bg-stone-50 border border-stone-200 rounded-xl
+           text-sm text-stone-900 font-sans
+           focus:outline-none focus:border-brand focus:bg-white focus:ring-2 focus:ring-brand/10
+           transition-all duration-150 cursor-pointer appearance-none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2378716c'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl
+           text-sm font-semibold font-sans cursor-pointer
+           transition-all duration-150 active:scale-95 select-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-stone-900 text-white hover:bg-stone-800;
+  }
+
+  .btn-outline {
+    @apply btn bg-white text-stone-700 border border-stone-200 hover:bg-stone-50 hover:border-stone-300;
+  }
+
+  .btn-brand {
+    @apply btn bg-brand text-white hover:bg-brand-dark shadow-sm;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-stone-500 hover:bg-stone-100 hover:text-stone-700;
+  }
+
+  .btn-icon {
+    @apply btn p-2 aspect-square;
+  }
+
+  .tab {
+    @apply px-4 py-3 text-xs font-semibold uppercase tracking-wider cursor-pointer
+           border-b-2 border-transparent text-stone-400
+           hover:text-stone-600 transition-all duration-150 -mb-px;
+  }
+
+  .tab-active {
+    @apply text-brand border-brand;
+  }
+
+  .color-swatch {
+    @apply w-7 h-7 rounded-lg cursor-pointer border-2 border-transparent
+           transition-all duration-100 hover:scale-110 active:scale-95;
+  }
+
+  .color-swatch-active {
+    @apply border-stone-900 scale-110;
+  }
+
+  .template-card {
+    @apply rounded-xl overflow-hidden cursor-pointer border-2 border-transparent
+           transition-all duration-150 hover:-translate-y-0.5 hover:border-stone-300
+           hover:shadow-md;
+  }
+
+  .template-card-active {
+    @apply border-brand shadow-md;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #1c1917, #e85d26);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .canvas-checkerboard {
+    background-color: #f0ede8;
+    background-image:
+      linear-gradient(45deg, #e7e5e4 25%, transparent 25%),
+      linear-gradient(-45deg, #e7e5e4 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #e7e5e4 75%),
+      linear-gradient(-45deg, transparent 75%, #e7e5e4 75%);
+    background-size: 16px 16px;
+    background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+  }
+}
