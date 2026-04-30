@@ -3,7 +3,7 @@ import Lumi from "@rafael_et/lumi-sdk";
 
 const PACKAGES = [
   {
-    id: 'coffee',
+    id: import.meta.env.VITE_COFFEE_PKG_ID,
     name: 'Buy a Coffee',
     price: '200',
     description: 'Keep the caffeine flowing for a night of debugging.',
@@ -11,7 +11,7 @@ const PACKAGES = [
     color: 'bg-amber-50',
   },
   {
-    id: 'lunch',
+    id: import.meta.env.VITE_LUNCH_PKG_ID,
     name: 'Buy Lunch',
     price: '500',
     description: 'Fuel a productive afternoon of shipping new features.',
@@ -20,7 +20,7 @@ const PACKAGES = [
     popular: true,
   },
   {
-    id: 'appreciate',
+    id: import.meta.env.VITE_APERICIATE_PKG_ID,
     name: 'Appreciate',
     price: '1000',
     description: 'The ultimate "thank you" for helping the project grow.',
@@ -101,7 +101,7 @@ export default function SupportPage() {
                 {pkg.description}
               </p>
 
-              <button className={`mt-auto w-full py-3 rounded-xl text-sm font-semibold transition-all ${
+              <button onClick={() => handlePayment(pkg.id)} className={`mt-auto w-full py-3 rounded-xl text-sm font-semibold transition-all ${
                 pkg.popular 
                   ? 'bg-stone-900 text-white hover:bg-stone-800' 
                   : 'bg-stone-100 text-stone-900 hover:bg-stone-200'
