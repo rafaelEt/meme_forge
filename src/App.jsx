@@ -10,6 +10,7 @@ import SupportPackages from './components/Support' // Import your new page
 import { useMemeCanvas } from './hooks/useMemeCanvas'
 import { useToast } from './hooks/useToast'
 import { RotateCcw } from 'lucide-react'
+import Success from './components/Success'
 
 const DEFAULT_SETTINGS = {
   topText: 'TOP TEXT',
@@ -145,6 +146,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Editor />} />
           <Route path="/support" element={<SupportPackages />} />
+          <Route path="/success" element={<Success />} />
         </Routes>
       </div>
     </BrowserRouter>

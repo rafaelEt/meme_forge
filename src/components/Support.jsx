@@ -40,12 +40,11 @@ export default function SupportPage() {
     if (result.status === "success") {
         // 2. Verify payment status with Lumi using the tx_ref
         const response = await fetch(`https://api.lumi.et/api/v1/payment/verify/${result.tx_ref}`, {
-        method: "POST",
+        method: "GET",
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${import.meta.env.VITE_SECRET_KEY}`
         },
-        body: JSON.stringify({ tx_ref: result.tx_ref })
         });
 
         const verification = await response.json();
