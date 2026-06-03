@@ -29,10 +29,7 @@ export default function Success() {
             </h1>
 
             <p className="text-[15px] leading-7 text-gray-500 max-w-[320px] mx-auto">
-              Thanks for supporting{" "}
-              <span className="font-semibold text-gray-900">
-                {appName}
-              </span>
+              Thanks for supporting us
               . Your contribution helps keep the project alive and growing.
             </p>
           </div>
@@ -65,10 +62,6 @@ export default function Success() {
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-500">
                   Application
-                </span>
-
-                <span className="text-sm font-semibold text-gray-900">
-                  {appName}
                 </span>
               </div>
 
