@@ -3,15 +3,6 @@ import { Check } from "lucide-react";
 
 export default function Success() {
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-
-  const encodedReturn = searchParams.get("r");
-  const returnData = encodedReturn
-    ? JSON.parse(atob(encodedReturn))
-    : null;
-
-  const appName = returnData?.app_name ?? "Memeforge";
-  const returnUrl = returnData?.return_url;
 
   return (
     <div className="min-h-screen bg-[#fafafa] flex items-center justify-center px-4">
@@ -86,11 +77,7 @@ export default function Success() {
 
           {/* BUTTON */}
           <button
-            onClick={() =>
-              returnUrl
-                ? navigate(`/app/${appName}`)
-                : navigate(-1)
-            }
+            onClick={() => navigate('/')}
             className="
               mt-8
               w-full
