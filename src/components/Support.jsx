@@ -32,10 +32,19 @@ const PACKAGES = [
 export default function SupportPage() {
   const lumi = new Lumi();
 
+  function generateTxRef() {
+    const random = crypto.getRandomValues(new Uint32Array(1))[0]
+      .toString(36)
+      .slice(0, 8);
+
+    return `s-${random}`;
+  }
+
   const handlePayment = async (packageId) => {
     try {
         // 1. Trigger the UI flow
-    const result = await lumi.pay({ packageId });
+    const ref = generateTxRef();
+    const result = await lumi.pay({ packageId, ref });
 
     if (result.status === "success") {
         // 2. Verify payment status with Lumi using the tx_ref
