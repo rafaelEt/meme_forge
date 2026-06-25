@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@rafael_et/lumi-sdk": "^1.0.0",
+    "@rafael_et/lumi-sdk": "^1.2.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.383.0",
     "react": "^18.3.1",
